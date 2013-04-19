@@ -1,9 +1,11 @@
 package GUIProject;
 
 import javax.swing.JPanel;
+import java.awt.Image;
+import java.awt.Graphics;
 /**
  * 
- * @author owner
+ * @author Stephen Wen
  *
  */
 public class Map extends JPanel {
@@ -14,20 +16,22 @@ public class Map extends JPanel {
 	 * 
 	 */
 	public Map(){
+		
 	}
 	
 	
 	/**
 	 * 
 	 */
-	public Location getLocation(){
+	public Location getLoc(){
+		return new Location();
 	}
 	
 	/**
 	 * 
 	 * @param g
 	 */
-	public void paint(graphics g){
+	public void paint(Graphics g){
 		
 	}
 }

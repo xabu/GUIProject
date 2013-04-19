@@ -1,33 +1,41 @@
 package GUIProject;
 
 import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  * 
- * @author owner
+ * @author Stephen Wen
  *
  */
-public class Answer extends JButton {
+public class Answer extends JButton implements ActionListener {
 	String option;
 	int points;
-	boolean right;
 	/**
-	 * 
+	 * default constructor
 	 */
 	public Answer(){
-		
+		super();
+		option = "Default Answer";
+		setText(option);
+		addActionListener(this);
+	}
+	
+	public Answer(String text){
+		super();
+		option = text;
+		setText(option);
+		addActionListener(this);
 	}
 	/**
 	 * 
 	 * @return
 	 */
 	public int getPoints(){
-		
+		return points;
 	}
-	/**
-	 * 
-	 * @return
-	 */
-	public boolean getRight(){
-		
+	
+	
+	public void actionPerformed(ActionEvent e){
 	}
 }

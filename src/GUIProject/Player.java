@@ -1,7 +1,9 @@
 package GUIProject;
+
+import java.io.File;
 /**
  * 
- * @author owner
+ * @author Stephen Wen
  *
  */
 public class Player {

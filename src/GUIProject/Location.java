@@ -1,7 +1,10 @@
 package GUIProject;
+
+import java.awt.Image;
+import java.awt.Point;
 /**
  * 
- * @author owner
+ * @author Stephen Wen
  *
  */
 public class Location {
@@ -14,10 +17,7 @@ public class Location {
 	}
 	
 	public Person pickPerson(){
-		
+		return new Person();
 	}
 	
-	public Image getIcon(){
-		
-	}
 }
