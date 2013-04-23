@@ -3,6 +3,7 @@ package GUIProject;
 import javax.swing.JPanel;
 import java.awt.Image;
 import java.awt.Graphics;
+import java.awt.BorderLayout;
 /**
  * 
  * @author Stephen Wen
@@ -18,17 +19,17 @@ public class Person extends JPanel {
 	 */
 	public Person(){
 		super();
-		words = new Question[10][3];
-		pointMin = 0;
+		setLayout(new BorderLayout());
+		words = new Question[1][1];
+		/*pointMin = 0;
 		pointMax = words.length-1;
-		currentPoint = (int)(Math.random()*words.length);
+		currentPoint = (int)(Math.random()*words.length);*/
 		for(int i = 0; i<words.length;i++){
 			for(int j = 0; j<words[0].length;j++){
 				words[i][j] = new Question("This is the "+ j+"th "+ i + " point question ");
 			}
 		}
 		add(words[currentPoint][(int)(Math.random()*words[0].length)]);
-		this.validate();
 	}
 	
 	/**
@@ -36,10 +37,14 @@ public class Person extends JPanel {
 	 * @param q
 	 */
 	public void add(Question q){
-		super.add(q.label);
-		for(int i = 0; i < q.answers.length; i++){
+		super.add(q.label, BorderLayout.PAGE_START);
+		/*for(int i = 0; i < q.answers.length; i++){
 			super.add(q.answers[i]);
-		}
+		}*/
+		super.add(q.answers[0],BorderLayout.LINE_START);
+		super.add(q.answers[1],BorderLayout.CENTER);
+		super.add(q.answers[2],BorderLayout.LINE_END);
+		validate();
 	}
 	/**
 	 * 

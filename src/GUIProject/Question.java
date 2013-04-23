@@ -7,7 +7,7 @@ import javax.swing.JLabel;
  * @author Stephen Wen
  *
  */
-public class Question {
+public class Question { 
 	public Answer[] answers = new Answer[3];
 	public JLabel label;
 	public String question;
@@ -21,8 +21,13 @@ public class Question {
 			answers[i] = new Answer();
 		}
 	}
+	/**
+	 * 
+	 * @param text
+	 */
 	public Question(String text){
 		super();
+		question = text;
 		label = new JLabel(text);
 		for(int i = 0; i < answers.length;i++){
 			answers[i] = new Answer();

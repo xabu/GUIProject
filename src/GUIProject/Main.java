@@ -15,7 +15,9 @@ public class Main {
 	 */
 	public static void main(String[] args){
 		frame = new JFrame();
-		frame.add(new Person());
+		Person p = new Person();
+		frame.add(p);
+		frame.validate();
 		frame.pack();
 		frame.setVisible(true);
 	}

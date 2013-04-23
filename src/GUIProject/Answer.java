@@ -18,14 +18,14 @@ public class Answer extends JButton implements ActionListener {
 		super();
 		option = "Default Answer";
 		setText(option);
-		addActionListener(this);
+		//addActionListener(this);
 	}
 	
 	public Answer(String text){
 		super();
 		option = text;
 		setText(option);
-		addActionListener(this);
+		//addActionListener(this);
 	}
 	/**
 	 * 

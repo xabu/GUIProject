@@ -13,11 +13,14 @@ public class Location {
 	Image icon;
 	
 	public Location(){
-		
+		people = new Person[5];
+		for(int i = 0; i < people.length;i++){
+			people[i] = new Person();
+		}
 	}
 	
 	public Person pickPerson(){
-		return new Person();
+		return people[(int)(Math.random()*people.length)];
 	}
 	
 }
