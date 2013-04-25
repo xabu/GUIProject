@@ -26,7 +26,7 @@ public class Person extends JPanel {
 		currentPoint = (int)(Math.random()*words.length);*/
 		for(int i = 0; i<words.length;i++){
 			for(int j = 0; j<words[0].length;j++){
-				words[i][j] = new Question("This is the "+ j+"th "+ i + " point question ");
+				words[i][j] = new Question("This is the "+ j + "th "+ i + " point question ");
 			}
 		}
 		add(words[currentPoint][(int)(Math.random()*words[0].length)]);
@@ -44,6 +44,7 @@ public class Person extends JPanel {
 		super.add(q.answers[0],BorderLayout.LINE_START);
 		super.add(q.answers[1],BorderLayout.CENTER);
 		super.add(q.answers[2],BorderLayout.LINE_END);
+		super.add(q.confirm, BorderLayout.PAGE_END);
 		validate();
 	}
 	/**

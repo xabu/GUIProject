@@ -17,6 +17,7 @@ public class Main {
 		frame = new JFrame();
 		Person p = new Person();
 		frame.add(p);
+		p.validate();
 		frame.validate();
 		frame.pack();
 		frame.setVisible(true);
