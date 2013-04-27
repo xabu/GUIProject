@@ -49,6 +49,5 @@ public class Question implements ActionListener{
 				System.out.println("Button "+i+" is selected");
 			}
 		}
-		confirm.addActionListener(this);
 	}
 }
