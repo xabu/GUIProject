@@ -8,9 +8,9 @@ import java.awt.Point;
  *
  */
 public class Location {
-	Point coordinates;
-	Person[] people;
-	Image icon;
+	private Point coordinates;
+	private Person[] people;
+	private Image icon;
 	
 	public Location(){
 		people = new Person[5];

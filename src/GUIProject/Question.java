@@ -1,21 +1,20 @@
 package GUIProject;
 
 import javax.swing.JLabel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.ButtonGroup;
+import java.awt.event.ActionListener;
 /**
  * 
  * @author Stephen Wen
  *
  */
-public class Question implements ActionListener{ 
-	public Answer[] answers = new Answer[3];
-	public JButton confirm = new JButton("Confirm");
-	public ButtonGroup group = new ButtonGroup();
-	public JLabel label;
-	public String question;
+public class Question{ 
+	private Answer[] answers = new Answer[3];
+	private JButton confirm = new JButton("Confirm");
+	private ButtonGroup group = new ButtonGroup();
+	private JLabel label;
+	private String question;
 	/**
 	 * 
 	 */
@@ -23,10 +22,9 @@ public class Question implements ActionListener{
 		super();
 		label = new JLabel("Default Question");
 		for(int i = 0; i < answers.length;i++){
-			answers[i] = new Answer();
+			answers[i] = new Answer(i-1);
 			group.add(answers[i]);
 		}
-		confirm.addActionListener(this);
 	}
 	/**
 	 * 
@@ -37,17 +35,21 @@ public class Question implements ActionListener{
 		question = text;
 		label = new JLabel(text);
 		for(int i = 0; i < answers.length;i++){
-			answers[i] = new Answer();
+			answers[i] = new Answer(i-1);
 			group.add(answers[i]);
 		}
-		confirm.addActionListener(this);
+	}
+	public Answer[] getAnswers(){
+		return answers;
+	}
+	public JButton getConfirm(){
+		return confirm;
+	}
+	public JLabel getLabel(){
+		return label;
+	}
+	public void addListeners(ActionListener a){
+		confirm.addActionListener(a);
 	}
 	
-	public void actionPerformed(ActionEvent e){
-		for(int i = 0; i < answers.length;i++){
-			if(answers[i].isSelected()){
-				System.out.println("Button "+i+" is selected");
-			}
-		}
-	}
 }

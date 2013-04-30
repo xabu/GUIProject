@@ -1,6 +1,8 @@
 package GUIProject;
 
 import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.BorderLayout;
@@ -9,27 +11,30 @@ import java.awt.BorderLayout;
  * @author Stephen Wen
  *
  */
-public class Person extends JPanel {
-	Question[][] words;
-	int pointMax, pointMin,currentPoint,questionMax;
-	Image Face;
-	String phoneNumber;
+public class Person extends JPanel implements ActionListener{
+	private Question[][] words;
+	private int pointMax, pointMin,currentPoints,questionMax;
+	private Image Face;
+	private String phoneNumber;
+	private Question currentQuestion;
 	/**
 	 * 
 	 */
 	public Person(){
 		super();
 		setLayout(new BorderLayout());
-		words = new Question[1][1];
-		/*pointMin = 0;
+		words = new Question[10][3];
+		pointMin = 0;
 		pointMax = words.length-1;
-		currentPoint = (int)(Math.random()*words.length);*/
+		currentPoints = (int)(Math.random()*words.length);
 		for(int i = 0; i<words.length;i++){
 			for(int j = 0; j<words[0].length;j++){
 				words[i][j] = new Question("This is the "+ j + "th "+ i + " point question ");
 			}
 		}
-		add(words[currentPoint][(int)(Math.random()*words[0].length)]);
+		currentQuestion = words[currentPoints][(int)(Math.random()*words[0].length)];
+		add(currentQuestion);
+		
 	}
 	
 	/**
@@ -37,22 +42,13 @@ public class Person extends JPanel {
 	 * @param q
 	 */
 	public void add(Question q){
-		super.add(q.label, BorderLayout.PAGE_START);
-		/*for(int i = 0; i < q.answers.length; i++){
-			super.add(q.answers[i]);
-		}*/
-		super.add(q.answers[0],BorderLayout.LINE_START);
-		super.add(q.answers[1],BorderLayout.CENTER);
-		super.add(q.answers[2],BorderLayout.LINE_END);
-		super.add(q.confirm, BorderLayout.PAGE_END);
+		super.add(q.getLabel(), BorderLayout.PAGE_START);
+		super.add(q.getAnswers()[0],BorderLayout.LINE_START);
+		super.add(q.getAnswers()[1],BorderLayout.CENTER);
+		super.add(q.getAnswers()[2],BorderLayout.LINE_END);
+		super.add(q.getConfirm(), BorderLayout.PAGE_END);
+		currentQuestion.addListeners(this);
 		validate();
-	}
-	/**
-	 * 
-	 * @param g
-	 */
-	public void paint(Graphics g){
-		
 	}
 	/**
 	 * 
@@ -77,5 +73,15 @@ public class Person extends JPanel {
 	 */
 	public void sadEnding(){
 		
+	}
+	public void actionPerformed(ActionEvent e){
+		for(int i = 0; i < currentQuestion.getAnswers().length;i++){
+			if(currentQuestion.getAnswers()[i].isSelected()){
+				removeAll();
+				currentPoints+=currentQuestion.getAnswers()[i].getPoints();
+				currentQuestion = words[currentPoints][(int)(Math.random()*words[0].length)];
+				add(currentQuestion);
+			}
+		}
 	}
 }

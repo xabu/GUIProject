@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
  *
  */
 public class Answer extends JRadioButton {
-	protected String option;
-	protected int points;
+	private String option;
+	private int points;
 	/**
 	 * default constructor
 	 */
@@ -18,14 +18,25 @@ public class Answer extends JRadioButton {
 		super();
 		option = "Default Answer";
 		setText(option);
-		//addActionListener(this);
+		points = 0;
 	}
-	
+	public Answer(int p){
+		super();
+		option = "Default Answer";
+		setText(option);
+		points = p;
+	}
 	public Answer(String text){
 		super();
 		option = text;
 		setText(option);
-		//addActionListener(this);
+		points = 0;
+	}
+	public Answer(String text, int p){
+		super();
+		option = text;
+		setText(option);
+		points = p;
 	}
 	/**
 	 * 
