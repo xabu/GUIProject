@@ -12,18 +12,18 @@ public class ImagePanel extends JPanel {
 
     public ImagePanel(String Filename) {
        try {                
-           image = ImageIO.read(new File("src/GUIProject/"+Filename+".jpg"));
+    	   image = ImageIO.read(new File("src/GUIProject/"+Filename+".jpg"));
        } catch (IOException ex) {
-            System.out.println("Couldn't find the file");
+    	   System.out.println("Couldn't find the file");
        }
     }
     public ImagePanel(BufferedImage img){
-    	image = img;
+	image = img;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(image, 0, 0, null); // see javadoc for more info on the parameters            
+	super.paintComponent(g);
+	g.drawImage(image, 0, 0, null); // see javadoc for more info on the parameters            
     }
 }
