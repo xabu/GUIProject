@@ -8,7 +8,7 @@ import java.awt.Graphics;
  * @author Stephen Wen
  *
  */
-public class Map extends JPanel{
+public class Map extends JPanel {
 	Image map;
 	Location[] locations;
 	Player player;
@@ -32,7 +32,6 @@ public class Map extends JPanel{
 				index =i;
 			}
 		}
-		return locations[i];
+		return locations[index];
 	}
-	
 }

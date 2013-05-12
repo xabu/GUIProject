@@ -1,11 +1,15 @@
 package GUIProject;
 
+import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.BorderLayout;
+import java.io.File;
+import java.io.IOException;
 /**
  * 
  * @author Stephen Wen
@@ -38,12 +42,12 @@ public class Person extends JPanel implements ActionListener{
 	public Person(String str){
 		super();
 		setLayout(new BorderLayout());
-		String[] params = str.split(',');
+		String[] params = str.split(",");
 		questionMax = Integer.parseInt(params[0]);
 		currentPoints = Integer.parseInt(params[1]);
 		name = params[2];
 		try {                
-	    	   face = ImageIO.read(new File("src/GUIProject/"+name+".jpg"));
+	    	   Face = ImageIO.read(new File("src/GUIProject/"+name+".jpg"));
 	       } catch (IOException ex) {
 	    	   System.out.println("Couldn't find the file");
 	       }

@@ -1,6 +1,8 @@
 package GUIProject;
 
 import java.io.File;
+import java.io.IOException;
+import java.awt.Point;
 /**
  * 
  * @author Stephen Wen
@@ -12,11 +14,7 @@ public class Player {
 	private File highScores;
 	private Point loc;
 
-	highScores = new File ("src/GUIProject/HighScores.txt");
 	
-	if (!highScores.exists()){
-		highScores.createNewFile();
-	}
 	
 	public Player(){
 		
@@ -25,7 +23,17 @@ public class Player {
 	 * 
 	 */
 	public void addScore(){
-		highScores
+		highScores = new File ("src/GUIProject/HighScores.txt");
+	
+	if (!highScores.exists()){
+		try{
+			highScores.createNewFile();
+		}
+		catch(IOException e){
+			System.out.println("There is no file");
+		}
+	}
+		//highScores
 	}
 	public Point getLoc(){
 		return loc;

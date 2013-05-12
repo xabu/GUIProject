@@ -32,7 +32,7 @@ public class Question{
 	 */
 	public Question(String text){
 		super();
-		String[] params = text.split('#');
+		String[] params = text.split("#");
 		question = params[0];
 		label = new JLabel(question);
 		for(int i = 0; i < answers.length;i++){

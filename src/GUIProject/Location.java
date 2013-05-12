@@ -21,7 +21,7 @@ public class Location {
 		coordinates.y = 0;
 	}
 	public Location(String[] str){
-		String [] strPoint = str[0].split();
+		String [] strPoint = str[0].split(",");
 		coordinates.x = Integer.parseInt(strPoint[0]);
 		coordinates.y = Integer.parseInt(strPoint[1]);
 		people = new Person[2];
