@@ -13,14 +13,27 @@ public class Location {
 	private Image icon;
 	
 	public Location(){
-		people = new Person[5];
+		people = new Person[2];
 		for(int i = 0; i < people.length;i++){
 			people[i] = new Person();
 		}
+		coordinates.x = 0;
+		coordinates.y = 0;
 	}
-	
+	public Location(String[] str){
+		String [] strPoint = str[0].split();
+		coordinates.x = Integer.parseInt(strPoint[0]);
+		coordinates.y = Integer.parseInt(strPoint[1]);
+		people = new Person[2];
+		for(int i = 0; i < people.length;i++){
+			people[i] = new Person(str[i+1]);
+		}
+	}
 	public Person pickPerson(){
 		return people[(int)(Math.random()*people.length)];
+	}
+	public Point getLoc(){
+		return coordinates;
 	}
 	
 }

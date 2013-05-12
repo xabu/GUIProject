@@ -13,20 +13,18 @@ import java.awt.BorderLayout;
  */
 public class Person extends JPanel implements ActionListener{
 	private Question[][] words;
-	private int pointMax, pointMin,currentPoints,questionMax, quesNum = 0;
+	private int currentPoints,questionMax, quesNum = 0;
 	private Image Face;
-	private String phoneNumber;
+	private String phoneNumber, name;
 	private Question currentQuestion;
 	/**
 	 * 
 	 */
 	public Person(){
 		super();
-		questionMax = 20;
+		questionMax = 5;
 		setLayout(new BorderLayout());
-		words = new Question[10][3];
-		pointMin = 0;
-		pointMax = words.length-1;
+		words = new Question[3][2];
 		currentPoints = (int)(Math.random()*words.length);
 		for(int i = 0; i<words.length;i++){
 			for(int j = 0; j<words[0].length;j++){
@@ -37,7 +35,20 @@ public class Person extends JPanel implements ActionListener{
 		add(currentQuestion);
 		
 	}
-	
+	public Person(String str){
+		super();
+		setLayout(new BorderLayout());
+		String[] params = str.split(',');
+		questionMax = Integer.parseInt(params[0]);
+		currentPoints = Integer.parseInt(params[1]);
+		name = params[2];
+		words = new Question[3][2];
+		for(int i = 0; i < words.length;i++){
+			words[i%3][i/3] = new Question(params[i+3]);
+		}
+		currentQuestion = words[currentPoints][(int)(Math.random()*words[0].length)];
+		add(currentQuestion);
+	}
 	/**
 	 * 
 	 * @param q
@@ -71,7 +82,7 @@ public class Person extends JPanel implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e){
 		quesNum++;
-		if(currentPoints>=pointMin && currentPoints<=pointMax&&quesNum<=questionMax){
+		if(currentPoints>=0 && currentPoints<=words.length-1&&quesNum<=questionMax){
 			for(int i = 0; i < currentQuestion.getAnswers().length;i++){
 				if(currentQuestion.getAnswers()[i].isSelected()){
 					removeAll();

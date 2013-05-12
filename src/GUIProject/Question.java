@@ -32,10 +32,11 @@ public class Question{
 	 */
 	public Question(String text){
 		super();
-		question = text;
-		label = new JLabel(text);
+		String[] params = text.split('#');
+		question = params[0];
+		label = new JLabel(question);
 		for(int i = 0; i < answers.length;i++){
-			answers[i] = new Answer(i-1);
+			answers[i] = new Answer(params[i+1], i-1);
 			group.add(answers[i]);
 		}
 	}
