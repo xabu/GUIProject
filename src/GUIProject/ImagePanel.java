@@ -12,7 +12,7 @@ public class ImagePanel extends JPanel {
 
     public ImagePanel(String Filename) {
        try {                
-           image = ImageIO.read(new File("src/PokemonCounting/"+Filename+".jpg"));
+           image = ImageIO.read(new File("src/GUIProject/"+Filename+".jpg"));
        } catch (IOException ex) {
             System.out.println("Couldn't find the file");
        }
