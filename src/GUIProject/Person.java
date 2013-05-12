@@ -32,7 +32,7 @@ public class Person extends JPanel implements ActionListener{
 		currentPoints = (int)(Math.random()*words.length);
 		for(int i = 0; i<words.length;i++){
 			for(int j = 0; j<words[0].length;j++){
-				words[i][j] = new Question("This is the "+ j + "th "+ i + " point question ");
+				words[i][j] = new Question();
 			}
 		}
 		currentQuestion = words[currentPoints][(int)(Math.random()*words[0].length)];
@@ -47,14 +47,15 @@ public class Person extends JPanel implements ActionListener{
 		currentPoints = Integer.parseInt(params[1]);
 		name = params[2];
 		try {                
-	    	   Face = ImageIO.read(new File("src/GUIProject/"+name+".jpg"));
-	       } catch (IOException ex) {
-	    	   System.out.println("Couldn't find the file");
-	       }
+			Face = ImageIO.read(new File("src/GUIProject/"+name+".jpg"));
+		} catch (IOException ex) {
+			System.out.println("Couldn't find the file");
+		}
 		words = new Question[3][2];
-		for(int i = 0; i < words.length;i++){
+		for(int i = 0; i < words.length*words[0].length;i++){
 			words[i%3][i/3] = new Question(params[i+3]);
 		}
+		phoneNumber = params[params.length-1];
 		currentQuestion = words[currentPoints][(int)(Math.random()*words[0].length)];
 		add(currentQuestion);
 	}
@@ -85,17 +86,19 @@ public class Person extends JPanel implements ActionListener{
 			endLabel.setText("Maybe we'll talk again sometime");
 		}
 		else{
-			endLabel.setText("Here is my #");
+			endLabel.setText("Here is my #" + phoneNumber);
 		}
-		add(endLabel);
+		add(endLabel, BorderLayout.CENTER);
 	}
 	public void actionPerformed(ActionEvent e){
 		quesNum++;
+		for(int i = 0; i < currentQuestion.getAnswers().length;i++)
+			if(currentQuestion.getAnswers()[i].isSelected())
+				currentPoints+=currentQuestion.getAnswers()[i].getPoints();
 		if(currentPoints>=0 && currentPoints<=words.length-1&&quesNum<=questionMax){
 			for(int i = 0; i < currentQuestion.getAnswers().length;i++){
 				if(currentQuestion.getAnswers()[i].isSelected()){
 					removeAll();
-					currentPoints+=currentQuestion.getAnswers()[i].getPoints();
 					currentQuestion = words[currentPoints][(int)(Math.random()*words[0].length)];
 					add(currentQuestion);
 				}

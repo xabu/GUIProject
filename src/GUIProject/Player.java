@@ -25,14 +25,14 @@ public class Player {
 	public void addScore(){
 		highScores = new File ("src/GUIProject/HighScores.txt");
 	
-	if (!highScores.exists()){
-		try{
-			highScores.createNewFile();
+		if (!highScores.exists()){
+			try{
+				highScores.createNewFile();
+			}
+			catch(IOException e){
+				System.out.println("There is no file");
+			}
 		}
-		catch(IOException e){
-			System.out.println("There is no file");
-		}
-	}
 		//highScores
 	}
 	public Point getLoc(){
