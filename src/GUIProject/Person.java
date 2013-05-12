@@ -42,6 +42,11 @@ public class Person extends JPanel implements ActionListener{
 		questionMax = Integer.parseInt(params[0]);
 		currentPoints = Integer.parseInt(params[1]);
 		name = params[2];
+		try {                
+	    	   face = ImageIO.read(new File("src/GUIProject/"+name+".jpg"));
+	       } catch (IOException ex) {
+	    	   System.out.println("Couldn't find the file");
+	       }
 		words = new Question[3][2];
 		for(int i = 0; i < words.length;i++){
 			words[i%3][i/3] = new Question(params[i+3]);
