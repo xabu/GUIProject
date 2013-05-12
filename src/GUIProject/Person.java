@@ -13,7 +13,7 @@ import java.awt.BorderLayout;
  */
 public class Person extends JPanel implements ActionListener{
 	private Question[][] words;
-	private int pointMax, pointMin,currentPoints,questionMax;
+	private int pointMax, pointMin,currentPoints,questionMax, quesNum = 0;
 	private Image Face;
 	private String phoneNumber;
 	private Question currentQuestion;
@@ -53,35 +53,23 @@ public class Person extends JPanel implements ActionListener{
 	/**
 	 * 
 	 */
-	public void slap(){
-		
-	}
-	/**
-	 * 
-	 */
-	public void giveNumber(){
-		
-	}
-	/**
-	 * 
-	 */
-	public void happyEnding(){
-		
-	}
-	/**
-	 * 
-	 */
-	public void sadEnding(){
+	public void end(){
 		
 	}
 	public void actionPerformed(ActionEvent e){
-		for(int i = 0; i < currentQuestion.getAnswers().length;i++){
-			if(currentQuestion.getAnswers()[i].isSelected()){
-				removeAll();
-				currentPoints+=currentQuestion.getAnswers()[i].getPoints();
-				currentQuestion = words[currentPoints][(int)(Math.random()*words[0].length)];
-				add(currentQuestion);
+		quesNum++;
+		if(currentPoints>=pointMin && currentPoints<=pointMax&&quesNum<=questionMax){
+			for(int i = 0; i < currentQuestion.getAnswers().length;i++){
+				if(currentQuestion.getAnswers()[i].isSelected()){
+					removeAll();
+					currentPoints+=currentQuestion.getAnswers()[i].getPoints();
+					currentQuestion = words[currentPoints][(int)(Math.random()*words[0].length)];
+					add(currentQuestion);
+				}
 			}
+		}
+		else{
+			end();
 		}
 	}
 }

@@ -8,7 +8,7 @@ import java.awt.Graphics;
  * @author Stephen Wen
  *
  */
-public class Map extends JPanel {
+public class Map extends JPanel{
 	Image map;
 	Location[] locations;
 
@@ -24,14 +24,7 @@ public class Map extends JPanel {
 	 * 
 	 */
 	public Location getLoc(){
-		return new Location();
+		return locations[(int)(Math.random()*locations.length)];
 	}
 	
-	/**
-	 * 
-	 * @param g
-	 */
-	public void paint(Graphics g){
-		
-	}
 }
