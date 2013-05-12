@@ -56,6 +56,18 @@ public class Person extends JPanel implements ActionListener{
 	 */
 	public void end(){
 		System.out.println("Ended the date");
+		removeAll();
+		JLabel endLabel = new JLabel();
+		if(currentPoints<=4){
+			endLabel.setText("I SLAP YOU BITCH");
+		}
+		else if (currentPoints<=7){
+			endLabel.setText("Maybe we'll talk again sometime");
+		}
+		else{
+			endLabel.setText("Here is my #");
+		}
+		add(endLabel);
 	}
 	public void actionPerformed(ActionEvent e){
 		quesNum++;

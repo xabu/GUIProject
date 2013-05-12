@@ -11,6 +11,7 @@ import java.awt.Graphics;
 public class Map extends JPanel{
 	Image map;
 	Location[] locations;
+	Player player;
 
 	/**
 	 * 
@@ -24,7 +25,14 @@ public class Map extends JPanel{
 	 * 
 	 */
 	public Location getLoc(){
-		return locations[(int)(Math.random()*locations.length)];
+		int index = 0;
+		for(int i = 0; i < locations.length;i++){
+			if(Math.sqrt(Math.pow(locations[i].getLoc().x - player.getLoc().x,2) + Math.pow(locations[i].getLoc().y - player.getLoc().y,2)) <
+					Math.sqrt(Math.pow(locations[index].getLoc().x - player.getLoc().x,2) + Math.pow(locations[index].getLoc().y - player.getLoc().y,2))){
+				index =i;
+			}
+		}
+		return locations[i];
 	}
 	
 }

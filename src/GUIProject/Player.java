@@ -7,9 +7,10 @@ import java.io.File;
  *
  */
 public class Player {
-	String name;
-	int points;
-	File highScores;
+	private String name;
+	private int points;
+	private File highScores;
+	private Point loc;
 	/**
 	 * 
 	 */
@@ -21,5 +22,8 @@ public class Player {
 	 */
 	public void addScore(){
 		
+	}
+	public Point getLoc(){
+		return loc;
 	}
 }
