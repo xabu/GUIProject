@@ -22,6 +22,7 @@ public class Person extends JPanel implements ActionListener{
 	 */
 	public Person(){
 		super();
+		questionMax = 20;
 		setLayout(new BorderLayout());
 		words = new Question[10][3];
 		pointMin = 0;
@@ -54,7 +55,7 @@ public class Person extends JPanel implements ActionListener{
 	 * 
 	 */
 	public void end(){
-		
+		System.out.println("Ended the date");
 	}
 	public void actionPerformed(ActionEvent e){
 		quesNum++;
