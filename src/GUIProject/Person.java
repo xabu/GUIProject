@@ -79,6 +79,7 @@ public class Person extends JPanel implements ActionListener{
 		System.out.println("Ended the date");
 		removeAll();
 		JLabel endLabel = new JLabel();
+		//HERE IS WHERE WE WANT IMAGES TO SHOW IN THESE IFS
 		if(currentPoints<=4){
 			endLabel.setText("I SLAP YOU BITCH");
 		}

@@ -3,12 +3,14 @@ package GUIProject;
 import javax.swing.JPanel;
 import java.awt.Image;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 /**
  * this class should display an image, and allow the player to move around that image to several location objects, will load a location object, which will select your person object
  * @author Stephen Wen
  *
  */
-public class Map extends JPanel {
+public class Map extends JPanel implements KeyListener{
 	Image map;
 	Location[] locations;
 	Player player;
@@ -33,5 +35,26 @@ public class Map extends JPanel {
 			}
 		}
 		return locations[index];
+	}
+
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

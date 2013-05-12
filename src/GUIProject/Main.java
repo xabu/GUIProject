@@ -35,4 +35,7 @@ public class Main {
 		frame.pack();
 		frame.setVisible(true);
 	}
+	public static void testMap(){
+		
+	}
 }
