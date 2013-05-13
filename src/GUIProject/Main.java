@@ -15,7 +15,8 @@ public class Main {
 	 */
 	public static void main(String[] args){
 		//testPerson();
-		testLocation();
+		//testLocation();
+		testMap();
 	}
 	public static void testPerson(){
 		frame = new JFrame();//this is the frame to hold everything
@@ -36,6 +37,10 @@ public class Main {
 		frame.setVisible(true);
 	}
 	public static void testMap(){
-		
+		frame = new JFrame();
+		Map m = new Map();
+		frame.getContentPane().add(m);
+		frame.setSize(400,400);
+		frame.setVisible(true);
 	}
 }

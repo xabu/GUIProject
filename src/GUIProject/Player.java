@@ -110,6 +110,18 @@ public class Player {
 			
 		}
 	}	
+	public void moveUp(){
+		loc.translate(0,-20);
+	}
+	public void moveDown(){
+		loc.translate(0, 20);
+	}
+	public void moveRight(){
+		loc.translate(20, 0);
+	}
+	public void moveLeft(){
+		loc.translate(-20,0);
+	}
 	public Point getLoc(){
 		return loc;
 	}

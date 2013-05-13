@@ -1,5 +1,6 @@
 package GUIProject;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Image;
 import java.awt.Graphics;
@@ -14,12 +15,16 @@ public class Map extends JPanel implements KeyListener{
 	Image map;
 	Location[] locations;
 	Player player;
+	JLabel label;
 
 	/**
 	 * 
 	 */
 	public Map(){
-		
+		addKeyListener(this);
+		label = new JLabel("default");
+		add(label);
+		label.addKeyListener(this);
 	}
 	
 	
@@ -29,8 +34,7 @@ public class Map extends JPanel implements KeyListener{
 	public Location getLoc(){
 		int index = 0;
 		for(int i = 0; i < locations.length;i++){
-			if(Math.sqrt(Math.pow(locations[i].getLoc().x - player.getLoc().x,2) + Math.pow(locations[i].getLoc().y - player.getLoc().y,2)) <
-					Math.sqrt(Math.pow(locations[index].getLoc().x - player.getLoc().x,2) + Math.pow(locations[index].getLoc().y - player.getLoc().y,2))){
+			if(locations[i].getLoc().distance(player.getLoc())<locations[index].getLoc().distance(player.getLoc())){
 				index =i;
 			}
 		}
@@ -39,9 +43,28 @@ public class Map extends JPanel implements KeyListener{
 
 
 	@Override
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void keyPressed(KeyEvent e) {
+		System.out.println("Got into key event");
+		int key = e.getKeyCode();
+		label.setText(""+e.getKeyChar());
+		switch(key){
+			case KeyEvent.VK_UP:
+				player.moveUp();
+				break;
+			case KeyEvent.VK_DOWN:
+				player.moveDown();
+				break;
+			case KeyEvent.VK_RIGHT:
+				player.moveRight();
+				break;
+			case KeyEvent.VK_LEFT:
+				player.moveLeft();
+				break;
+			case KeyEvent.VK_ENTER:
+				removeAll();
+				add(getLoc().pickPerson());
+				break;
+		}
 	}
 
 
