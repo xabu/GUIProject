@@ -18,7 +18,7 @@ import java.io.IOException;
 public class Person extends JPanel implements ActionListener{
 	private Question[][] words;
 	private int currentPoints,questionMax, quesNum = 0;
-	private Image Face;
+	private Image Face, goodEnd, okayEnd, badEnd;
 	private String phoneNumber, name;
 	private Question currentQuestion;
 	/**
@@ -82,12 +82,15 @@ public class Person extends JPanel implements ActionListener{
 		//HERE IS WHERE WE WANT IMAGES TO SHOW IN THESE IFS
 		if(currentPoints<=4){
 			endLabel.setText("I SLAP YOU BITCH");
+			g.drawImage (badEnd, 0, 0, null);
 		}
 		else if (currentPoints<=7){
 			endLabel.setText("Maybe we'll talk again sometime");
+			g.drawImage (okayEnd, 0, 0, null);
 		}
 		else{
 			endLabel.setText("Here is my #" + phoneNumber);
+			g.drawImage (goodEnd, 0, 0, null);
 		}
 		add(endLabel, BorderLayout.CENTER);
 	}
