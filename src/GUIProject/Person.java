@@ -79,7 +79,25 @@ public class Person extends JPanel implements ActionListener{
 		System.out.println("Ended the date");
 		removeAll();
 		JLabel endLabel = new JLabel();
-		//HERE IS WHERE WE WANT IMAGES TO SHOW IN THESE IFS
+		try {                
+    	   		badEnd = ImageIO.read(new File("src/GUIProject/badEnd"+name+".jpg"));
+       		} 
+       		catch (IOException ex) {
+    	   		System.out.println("Couldn't find the file");
+       		}
+       		
+       		try {                
+    	   		okayEnd = ImageIO.read(new File("src/GUIProject/okayEnd"+name+".jpg"));
+       		} 
+       		catch (IOException ex) {
+    	   		System.out.println("Couldn't find the file");
+       		}
+       		try {                
+    	   		goodEnd = ImageIO.read(new File("src/GUIProject/goodEnd"+name+".jpg"));
+       		} 
+       		catch (IOException ex) {
+    	   		System.out.println("Couldn't find the file");
+       		}
 		if(currentPoints<=4){
 			endLabel.setText("I SLAP YOU BITCH");
 			g.drawImage (badEnd, 0, 0, null);
