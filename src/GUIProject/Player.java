@@ -20,6 +20,7 @@ public class Player {
 	private String[] content;
 	private BufferedReader br;
 	public Player(){
+		loc = new Point();
 		highScores = new File ("src/GUIProject/HighScores.txt");
 		try{
 			br = new BufferedReader (new FileReader ("src/GUIProject/HighScores.txt"));

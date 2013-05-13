@@ -46,6 +46,7 @@ public class Person extends JPanel implements ActionListener{
 		questionMax = Integer.parseInt(params[0]);
 		currentPoints = Integer.parseInt(params[1]);
 		name = params[2];
+		System.out.println(name);
 		try {                
 			Face = ImageIO.read(new File("src/GUIProject/"+name+".jpg"));
 		} catch (IOException ex) {
@@ -100,15 +101,15 @@ public class Person extends JPanel implements ActionListener{
        		}
 		if(currentPoints<=4){
 			endLabel.setText("I SLAP YOU BITCH");
-			g.drawImage (badEnd, 0, 0, null);
+			//g.drawImage (badEnd, 0, 0, null);
 		}
 		else if (currentPoints<=7){
 			endLabel.setText("Maybe we'll talk again sometime");
-			g.drawImage (okayEnd, 0, 0, null);
+			//g.drawImage (okayEnd, 0, 0, null);
 		}
 		else{
 			endLabel.setText("Here is my #" + phoneNumber);
-			g.drawImage (goodEnd, 0, 0, null);
+			//g.drawImage (goodEnd, 0, 0, null);
 		}
 		add(endLabel, BorderLayout.CENTER);
 	}

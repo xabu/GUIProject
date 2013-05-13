@@ -1,7 +1,7 @@
 package GUIProject;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -15,18 +15,32 @@ public class Map extends JPanel implements KeyListener{
 	Image map;
 	Location[] locations;
 	Player player;
-	JLabel label;
 
 	/**
 	 * 
 	 */
 	public Map(){
-		addKeyListener(this);
-		label = new JLabel("default");
-		add(label);
-		label.addKeyListener(this);
+		locations = new Location[3];
+		for(int i = 0; i < locations.length;i++){
+			locations[i] = new Location();
+		}
+		player = new Player();
+		JTextArea a = new JTextArea();
+		a.setEditable(false);
+		a.addKeyListener(this);
+		add(a);
 	}
-	
+	public Map (String[][] text){
+		locations = new Location[3];
+		player = new Player();
+		for(int i = 0; i < locations.length;i++){
+			locations[i] = new Location(text[i]);
+		}
+		JTextArea a = new JTextArea();
+		a.setEditable(false);
+		a.addKeyListener(this);
+		add(a);
+	}
 	
 	/**
 	 * 
@@ -46,7 +60,6 @@ public class Map extends JPanel implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		System.out.println("Got into key event");
 		int key = e.getKeyCode();
-		label.setText(""+e.getKeyChar());
 		switch(key){
 			case KeyEvent.VK_UP:
 				player.moveUp();
