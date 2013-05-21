@@ -12,6 +12,7 @@ public class Answer extends JRadioButton {
 	/**
 	 * default constructor
 	 */
+	/*
 	public Answer(){
 		super();
 		option = "Default Answer";
@@ -23,7 +24,7 @@ public class Answer extends JRadioButton {
 		option = "Default Answer";
 		setText(option);
 		points = p;
-	}
+	}*/
 	public Answer(String text){
 		super();
 		option = text;

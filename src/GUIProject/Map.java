@@ -16,9 +16,7 @@ public class Map extends JPanel implements KeyListener{
 	Location[] locations;
 	Player player;
 
-	/**
-	 * 
-	 */
+	/*
 	public Map(){
 		locations = new Location[3];
 		for(int i = 0; i < locations.length;i++){
@@ -29,7 +27,7 @@ public class Map extends JPanel implements KeyListener{
 		a.setEditable(false);
 		a.addKeyListener(this);
 		add(a);
-	}
+	}*/
 	public Map (String[][] text){
 		locations = new Location[3];
 		player = new Player();
@@ -58,7 +56,7 @@ public class Map extends JPanel implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("Got into key event");
+		System.out.println("Got into key event" + e.getKeyChar());
 		int key = e.getKeyCode();
 		switch(key){
 			case KeyEvent.VK_UP:

@@ -19,6 +19,8 @@ public class Player {
 	private Point loc;
 	private String[] content;
 	private BufferedReader br;
+	
+	
 	public Player(){
 		loc = new Point();
 		highScores = new File ("src/GUIProject/HighScores.txt");
@@ -36,7 +38,7 @@ public class Player {
 				System.out.println("There is no file");
 			}
 		}
-		}
+	}
 	/**
 	 * 
 	 */

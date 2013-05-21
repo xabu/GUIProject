@@ -1,6 +1,7 @@
 package GUIProject;
 
 import javax.imageio.ImageIO;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
@@ -21,9 +22,7 @@ public class Person extends JPanel implements ActionListener{
 	private Image Face, goodEnd, okayEnd, badEnd;
 	private String phoneNumber, name;
 	private Question currentQuestion;
-	/**
-	 * 
-	 */
+	/*
 	public Person(){
 		super();
 		questionMax = 5;
@@ -38,7 +37,7 @@ public class Person extends JPanel implements ActionListener{
 		currentQuestion = words[currentPoints][(int)(Math.random()*words[0].length)];
 		add(currentQuestion);
 		
-	}
+	}*/
 	public Person(String str){
 		super();
 		setLayout(new BorderLayout());
@@ -46,16 +45,19 @@ public class Person extends JPanel implements ActionListener{
 		questionMax = Integer.parseInt(params[0]);
 		currentPoints = Integer.parseInt(params[1]);
 		name = params[2];
-		System.out.println(name);
 		try {                
 			Face = ImageIO.read(new File("src/GUIProject/"+name+".jpg"));
+			goodEnd = ImageIO.read(new File("src/GUIProject/"+name+"Happy.jpg"));
+			badEnd = ImageIO.read(new File("src/GUIProject/"+name+"Mad.jpg"));
+			okayEnd = ImageIO.read(new File("src/GUIProject/"+name+"Neutral.jpg"));
 		} catch (IOException ex) {
-			System.out.println("Couldn't find the file");
+			System.out.println("Couldn't find the talking face picture");
 		}
 		words = new Question[3][2];
 		for(int i = 0; i < words.length*words[0].length;i++){
-			words[i%3][i/3] = new Question(params[i+3]);
+			words[i%3][i/3] = new Question(params[i+3], this);
 		}
+		
 		phoneNumber = params[params.length-1];
 		currentQuestion = words[currentPoints][(int)(Math.random()*words[0].length)];
 		add(currentQuestion);
@@ -79,6 +81,7 @@ public class Person extends JPanel implements ActionListener{
 	public void end(){
 		System.out.println("Ended the date");
 		removeAll();
+		JDialog endDialog = new JDialog();
 		JLabel endLabel = new JLabel();
 		try {                
     	   		badEnd = ImageIO.read(new File("src/GUIProject/badEnd"+name+".jpg"));
@@ -99,19 +102,22 @@ public class Person extends JPanel implements ActionListener{
        		catch (IOException ex) {
     	   		System.out.println("Couldn't find the file");
        		}
-		if(currentPoints<=4){
+		if(currentPoints<=words.length/3){
 			endLabel.setText("I SLAP YOU BITCH");
-			//g.drawImage (badEnd, 0, 0, null);
 		}
-		else if (currentPoints<=7){
+		else if (currentPoints<=2*words.length/3){
 			endLabel.setText("Maybe we'll talk again sometime");
-			//g.drawImage (okayEnd, 0, 0, null);
 		}
 		else{
 			endLabel.setText("Here is my #" + phoneNumber);
-			//g.drawImage (goodEnd, 0, 0, null);
 		}
-		add(endLabel, BorderLayout.CENTER);
+		endDialog.add(endLabel);
+		endDialog.pack();
+		endDialog.setVisible(true);
+		repaint();
+	}
+	public String getName(){
+		return name;
 	}
 	public void actionPerformed(ActionEvent e){
 		quesNum++;

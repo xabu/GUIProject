@@ -15,23 +15,20 @@ public class Main {
 	 */
 	public static void main(String[] args){
 		//testPerson();
-		//testLocation();
-		testMap();
+		testLocation();
+		//testMap();
 	}
 	public static void testPerson(){
 		frame = new JFrame();//this is the frame to hold everything
-		Person p = new Person();//this is a test person to make sure people are working
+		Person p = new Person("5,1,Jenny,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself");//this is a test person to make sure people are working
 		frame.getContentPane().add(p);//adding the panel to the frame
-		p.validate();
-		frame.validate();
 		frame.pack();
 		frame.setVisible(true);
 	}
 	public static void testLocation(){
 		frame = new JFrame();
-		String testInput = "20,300\n5,1,Jenny,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself\n5,1,Joy,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself\n5,1,May,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself";
+		String testInput = "20,300\n5,1,Jenny,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,416-888-4848\n5,1,Joy,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,416-214-8426\n5,1,May,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,416-845-2684";
 		String[] testArr = testInput.split("\n");
-		System.out.println("Length is"+testArr.length);
 		Location l = new Location(testArr);
 		frame.add(l.pickPerson());
 		frame.pack();

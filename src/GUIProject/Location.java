@@ -11,7 +11,7 @@ public class Location {
 	private Point coordinates;
 	private Person[] people;
 	private Image icon;
-	
+	/*
 	public Location(){
 		people = new Person[2];
 		for(int i = 0; i < people.length;i++){
@@ -19,13 +19,12 @@ public class Location {
 		}
 		coordinates.x = 0;
 		coordinates.y = 0;
-	}
+	}*/
 	public Location(String[] str){
 		String [] strPoint = str[0].split(",");
 		coordinates = new Point(Integer.parseInt(strPoint[0]),Integer.parseInt(strPoint[1]));
 		people = new Person[2];
 		for(int i = 0; i < people.length;i++){
-			System.out.println(str[i+1]);
 			people[i] = new Person(str[i+1]);
 		}
 	}

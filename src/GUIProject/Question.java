@@ -15,9 +15,8 @@ public class Question{
 	private ButtonGroup group = new ButtonGroup();
 	private JLabel label;
 	private String question;
-	/**
-	 * 
-	 */
+	private Person me;
+	/*
 	public Question(){
 		super();
 		label = new JLabel("Default Question");
@@ -26,6 +25,7 @@ public class Question{
 			group.add(answers[i]);
 		}
 	}
+	*/
 	/**
 	 * 
 	 * @param text
@@ -35,6 +35,17 @@ public class Question{
 		String[] params = text.split("#");
 		question = params[0];
 		label = new JLabel(question);
+		for(int i = 0; i < answers.length;i++){
+			answers[i] = new Answer(params[i+1], i-1);
+			group.add(answers[i]);
+		}
+	}
+	public Question(String text, Person p){
+		super();
+		me = p;
+		String[] params = text.split("#");
+		question = params[0];
+		label = new JLabel(me.getName()+": "+question);
 		for(int i = 0; i < answers.length;i++){
 			answers[i] = new Answer(params[i+1], i-1);
 			group.add(answers[i]);
