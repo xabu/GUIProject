@@ -8,7 +8,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.awt.Point;
 /**
- * 
+ * This class was supposed to be used to store the points and create high scores for the game, currently it does not work and is not included in the final run of the program.
  * @author Stephen Wen
  *
  */

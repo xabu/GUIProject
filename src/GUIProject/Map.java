@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 /**
+ * This class was not completed and is not used in the program, it would be implemented as a way to select which person to talk to first. MJ was told to finish this class several times and he did no work.
  * this class should display an image, and allow the player to move around that image to several location objects, will load a location object, which will select your person object
  * @author Stephen Wen
  *

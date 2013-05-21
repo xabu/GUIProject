@@ -1,4 +1,8 @@
 package GUIProject;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import javax.swing.JFrame;
 
 /**
@@ -10,7 +14,7 @@ public class Main {
 	public static JFrame frame;
 	public static Map baseMap;
 	/**
-	 * 
+	 * Main method to run the program
 	 * @param args
 	 */
 	public static void main(String[] args){
@@ -18,16 +22,19 @@ public class Main {
 		testLocation();
 		//testMap();
 	}
-	public static void testPerson(){
-		frame = new JFrame();//this is the frame to hold everything
-		Person p = new Person("5,1,Jenny,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself");//this is a test person to make sure people are working
-		frame.getContentPane().add(p);//adding the panel to the frame
-		frame.pack();
-		frame.setVisible(true);
-	}
 	public static void testLocation(){
 		frame = new JFrame();
-		String testInput = "20,300\n5,1,Jenny,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,416-888-4848\n5,1,Joy,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,416-214-8426\n5,1,May,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,416-845-2684";
+		Scanner sc;
+		String testInput = "";
+		try {
+			sc = new Scanner(new File("src\\GUIProject\\otherFiles\\Input.txt"));
+			while(sc.hasNextLine()){
+				testInput += sc.nextLine()+"\n";
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+		}
+		//String testInput = "20,300\n5,1,Jenny,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,416-888-4848\n5,1,Joy,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,416-214-8426\n5,1,May,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,You are scaring me#Fuck you#Who are you#Don't worry I'm clean,You seem ok#You wanna fuck?#I sure am ok#You seem ok yourself,Hey you're cute#Suck my dick#Yeah I am!#Not bad looking yourself,416-845-2684";
 		String[] testArr = testInput.split("\n");
 		Location l = new Location(testArr);
 		frame.add(l.pickPerson());

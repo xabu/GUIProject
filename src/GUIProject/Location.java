@@ -25,7 +25,7 @@ public class Location {
 		coordinates = new Point(Integer.parseInt(strPoint[0]),Integer.parseInt(strPoint[1]));
 		people = new Person[2];
 		for(int i = 0; i < people.length;i++){
-			people[i] = new Person(str[i+1]);
+			people[i] = new Person(str[i+1], this);
 		}
 	}
 	public Person pickPerson(){
