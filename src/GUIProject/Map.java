@@ -57,7 +57,6 @@ public class Map extends JPanel implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println("Got into key event" + e.getKeyChar());
 		int key = e.getKeyCode();
 		switch(key){
 			case KeyEvent.VK_UP:
